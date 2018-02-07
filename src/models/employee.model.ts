@@ -1,3 +1,5 @@
+
+
 export class Employee
 {
     constructor(
@@ -16,7 +18,7 @@ export class Employee
         public java: boolean,
         public php: boolean,
         public python: boolean
-    ){
-
-    }
+        
+    ){}    
 }
+
