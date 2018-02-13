@@ -2,8 +2,7 @@ import {Component , OnInit } from '@angular/core';
 
 
 @Component({
-  selector: 'home',
-  styleUrls: ['./employee.css'],
+  selector: 'home',  
   templateUrl: './employee.html'
 })
 export class Home {

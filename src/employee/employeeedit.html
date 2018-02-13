@@ -12,7 +12,7 @@
 <div class="container">
 <div class="panel panel-primary">
     <div class="panel-heading">
-        <h3 align="center" ><b> EMPLOYEE DETAILS </b></h3>
+        <h3 align="center" ><b> UPDATE EMPLOYEE DETAILS </b></h3>
         </div>
         <div class="panel-body">
         <form #form="ngForm">
@@ -82,7 +82,6 @@
                     </option>
                 </select>
             </div>
-
             <label> Coding Languages : </label>
             <div class="checkbox" >
             <label>
@@ -109,13 +108,15 @@
                     <input type="checkbox" name="python" [(ngModel)]="model.python"> Python
                 </label>
             </div>     
-
-            <button (click)='storedata()' class="btn btn-primary" type="submit" > SUBMIT </button>   
+        <button (click)='updatedata(model.id)' class="btn btn-primary" type="submit" > SAVE </button>   
+        
+    </form>`            
     
-        </form>
-        <!-- Model: {{ model | json }}
-        <br>
-        Angular: {{ form.value | json }}    -->
+    <!-- Model: {{ model | json }}
+    <br>
+    Angular: {{ form.value | json }} -->    
+
+
     </div>
 </div>
 

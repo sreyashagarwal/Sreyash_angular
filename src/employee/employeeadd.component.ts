@@ -3,8 +3,7 @@ import { Employee } from '../models/employee.model';
 import { Router }  from '@angular/router';  
 
 @Component({
-  selector: 'home',
-  styleUrls: ['./employeeadd.css'],
+  selector: 'home',  
   templateUrl: './employeeadd.html'
 })
 export class EmployeeAdd implements OnInit {    
@@ -15,7 +14,7 @@ export class EmployeeAdd implements OnInit {
           i : number;
           data : Array<string>;
 
-          constructor(private _router: Router){} 
+constructor(private _router: Router){} 
 
 onBack(): void 
 { 
@@ -32,38 +31,38 @@ ngOnInit(): void
 } //functiononinit
 
 createTables() : void
-    {
-        var db = openDatabase('mydb', '1.0', 'Test DB', 2 * 1024 * 1024);
-            db.transaction(
-                function (transaction) {
-                    transaction.executeSql('CREATE TABLE IF NOT EXISTS emp_details(fname TEXT NOT NULL,lname TEXT NOT NULL,email TEXT NOT NULL,contact TEXT NOT NULL,address TEXT NOT NULL,username TEXT NOT NULL,password TEXT NOT NULL,gender TEXT NOT NULL, qualification TEXT, experience TEXT,language TEXT NOT NULL);', []);
-                }
-            );
-    }
+{
+    var db = openDatabase('mydb', '1.0', 'Test DB', 2 * 1024 * 1024);
+        db.transaction(
+            function (transaction) {
+                transaction.executeSql('CREATE TABLE IF NOT EXISTS emp_details(id INTEGER PRIMARY KEY AUTOINCREMENT,fname TEXT NOT NULL,lname TEXT NOT NULL,email TEXT NOT NULL,contact TEXT NOT NULL,address TEXT NOT NULL,username TEXT NOT NULL,password TEXT NOT NULL,gender TEXT NOT NULL, qualification TEXT, experience TEXT,language TEXT NOT NULL);', []);
+            }
+        );
+}
 
- initDatabase() : void 
-  {
-        try {
-            if (!window.openDatabase) 
-            {
-                alert('Databases are not supported in this browser.');
-            } 
-            else 
-            {
-                var db = openDatabase('mydb', '1.0', 'Test DB', 2 * 1024 * 1024);
-                this.createTables();
-            }
-        } catch(e) 
+initDatabase() : void 
+{
+    try {
+        if (!window.openDatabase) 
         {
-            if (e == 2) {
-                // Version number mismatch.
-                console.log("Invalid database version.");
-            } else {
-                console.log("Unknown error "+e+".");
-            }
-            return;
+            alert('Databases are not supported in this browser.');
+        } 
+        else 
+        {
+            var db = openDatabase('mydb', '1.0', 'Test DB', 2 * 1024 * 1024);
+            this.createTables();
         }
+    } catch(e) 
+    {
+        if (e == 2) {
+            // Version number mismatch.
+            alert("Invalid database version.");
+        } else {
+            alert("Unknown error "+e+".");
+        }
+        return;
     }
+}
 
 storedata(): void 
 {
@@ -105,5 +104,7 @@ storedata(): void
     );
     alert("Data Stored !!!!!!! Thank you.");
     this.onBack();
+
     }   //function
+
 }       // class
